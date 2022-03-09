@@ -3,13 +3,14 @@ Redis pub/sub handler message with custom object
 
 
 Connection and send example packet
-```     this.redisCommonSupport.connect("localhost", "");
-        this.redisHandlerService.enable("org.pieszku.redis.handler.packet");
-
-        this.redisCommonSupport.publishPacket("MASTER", new PacketExampleRequest(1, "elo"));
+```     
+        this.redisCommonSupport.connect("localhost", ""); // connection
+        this.redisHandlerService.enable("org.pieszku.redis.handler.packet"); //listen packets
+        this.redisCommonSupport.publishPacket("MASTER", new PacketExampleRequest(1, "elo")); // send packet
 ```
 Example packet: 
-```package org.pieszku.redis.packet;
+```
+package org.pieszku.redis.packet;
 
 import org.pieszku.redis.type.RedisPacketType;
 
@@ -28,7 +29,7 @@ public class PacketExampleInfo extends Packet{
     }
 }
 ```
-Listen example packet:
+Listen class example packet:
 ```
 package org.pieszku.redis.handler.packet;
 
